@@ -3,12 +3,12 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
-  spec.name          = "capistrano-rsync"
+  spec.name          = "capistrano-rsync-scm"
   spec.version       = '0.0.1'
   spec.authors       = ["Olli Helenius"]
   spec.email         = ["olli.helenius@onesto.fi"]
   spec.summary       = %q{Rsync-based deployment strategy}
-  spec.homepage      = "https://code.onesto.fi/browser/capistrano-rsync"
+  spec.homepage      = "https://code.onesto.fi/browser/capistrano-rsync-scm"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

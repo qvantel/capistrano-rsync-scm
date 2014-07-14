@@ -1,10 +1,10 @@
-load File.expand_path("../tasks/rsync.rake", __FILE__)
+load File.expand_path("../tasks/rsync_scm.rake", __FILE__)
 
 require 'capistrano/scm'
 require 'tmpdir'
 
 
-class Capistrano::Rsync < Capistrano::SCM
+class Capistrano::RsyncScm < Capistrano::SCM
   VERSION = "0.0.1"
 
   # The Capistrano default strategy for git. You should want to use this.
@@ -14,7 +14,7 @@ class Capistrano::Rsync < Capistrano::SCM
     end
 
     def with_clone(&block)
-      tmpdir = Dir.mktmpdir('capistrano-rsync-')
+      tmpdir = Dir.mktmpdir('capistrano-rsync-scm-')
       begin
         run_locally do
           execute :git, 'clone', '--quiet', fetch(:repo_url), tmpdir

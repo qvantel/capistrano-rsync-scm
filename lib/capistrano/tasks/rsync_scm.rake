@@ -1,4 +1,4 @@
-namespace :rsync do
+namespace :rsync_scm do
   def rsync_base_options
     %w(
     --checksum
@@ -15,7 +15,7 @@ namespace :rsync do
   end
 
   def strategy
-    @strategy ||= Capistrano::Rsync.new(self, fetch(:rsync_strategy, Capistrano::Rsync::GitStrategy))
+    @strategy ||= Capistrano::RsyncScm.new(self, fetch(:rsync_scm_strategy, Capistrano::RsyncScm::GitStrategy))
   end
 
   task :check do
