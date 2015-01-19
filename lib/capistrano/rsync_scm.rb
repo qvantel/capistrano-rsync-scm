@@ -17,7 +17,7 @@ class Capistrano::RsyncScm < Capistrano::SCM
       tmpdir = Dir.mktmpdir('capistrano-rsync-scm-')
       begin
         run_locally do
-          execute :git, 'clone', '--quiet', fetch(:repo_url), tmpdir
+          execute :git, 'clone', '--quiet', "--branch=#{fetch(:branch)}", fetch(:repo_url), tmpdir
         end
         block.call(tmpdir)
       ensure
