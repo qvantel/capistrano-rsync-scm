@@ -32,7 +32,12 @@ namespace :rsync_scm do
         rsync_options = rsync_base_options
         rsync_options << "--link-dest=#{last_release_path}" if last_release_path
 
-        target = "#{release_role.user}@#{release_role.hostname}:#{release_path}"
+        target = if release_role.user.nil? || release_role.user.empty?
+          "#{release_role.hostname}:#{release_path}"
+        else
+          "#{release_role.user}@#{release_role.hostname}:#{release_path}"
+        end
+
         command = "cd #{source} && git ls-files -z | rsync #{rsync_options.join(' ')} '.' #{target}"
 
         run_locally do
