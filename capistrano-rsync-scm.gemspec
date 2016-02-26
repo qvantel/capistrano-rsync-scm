@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "capistrano-rsync-scm"
-  spec.version       = '0.0.3'
+  spec.version       = '0.0.4'
   spec.authors       = ["Olli Helenius"]
   spec.email         = ["olli.helenius@onesto.fi"]
   spec.summary       = %q{Rsync-based deployment strategy}
@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'capistrano', '>= 3.3.5'
+  spec.add_dependency 'capistrano', '~> 3.4'
 
   spec.add_development_dependency 'bundler', '~> 1.10.4'
   spec.add_development_dependency 'rake'
