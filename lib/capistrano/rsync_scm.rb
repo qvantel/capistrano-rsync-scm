@@ -10,7 +10,7 @@ class Capistrano::RsyncScm < Capistrano::SCM
   # The Capistrano default strategy for git. You should want to use this.
   module GitStrategy
     def check
-      File.exists?(File.join('.git', 'refs', 'heads', fetch(:branch).to_s))
+      `git ls-remote #{fetch(:repo_url)} refs/heads/#{fetch(:branch)}`.lines.any?
     end
 
     def with_clone(&block)
