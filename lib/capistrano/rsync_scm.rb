@@ -10,7 +10,7 @@ class Capistrano::RsyncScm < Capistrano::SCM
   # The Capistrano default strategy for git. You should want to use this.
   module GitStrategy
     def check
-      `git ls-remote #{fetch(:repo_url)} refs/heads/#{fetch(:branch)}`.lines.any?
+      `git ls-remote #{fetch(:repo_url)} refs/heads/#{fetch(:branch)} || true`.lines.any?
     end
 
     def with_clone(&block)
