@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "capistrano-rsync-scm"
-  spec.version       = '0.0.4'
+  spec.version       = '0.0.5'
   spec.authors       = ["Olli Helenius"]
   spec.email         = ["olli.helenius@onesto.fi"]
   spec.summary       = %q{Rsync-based deployment strategy}
